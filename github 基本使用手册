@@ -1,0 +1,90 @@
+github 基本使用手册
+
+前期的安装和rsa密钥配置略过
+
+新建文件夹
+右键 git bash
+git init
+
+fork项目到自己的GitHub上面
+git clone   ***my***.git
+
+//git checkout -b  类型的建立连接
+//$  git remote add  liuyuchaoBranch https://github.com/Bancine/graduationPM.git
+
+git add .   //添加新增的文件到stage状态如果出错删掉文件夹里面的最里面.git文件
+git commit -a -m "更新原因"  //本地更新
+
+//建立连接地址为自己github项目的地址
+ git remote add origin https://github.com//aidaka/graduationPM.git 
+//如果提示 fatal: remote origin already exists.
+ git pull origin master --allow-unrelated-histories
+
+git push 'fork出来的地址‘  //远程更新提交
+//把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，
+
+ git push -u origin master
+ //如果报错显示如下
+Warning: Permanently added the RSA host key for IP address '13.229.188.59' to the list of known hosts.
+To github.com:/aidaka/graduationPM.git
+//则添加显示的ip到本机hosts文件末尾
+
+
+$ git pull origin master//和下面拿到本地，的区别：就是下面有其他分支，而这种就是master分支的操作
+git fetch//拿到本地
+$ git merge//合并分支的修改
+git log //更新记录
+git status //状态
+git reset //回退版本
+
+教训：建立仓库的时候initial 在后期会因为冲突导致更加麻烦原因就是.md文件的影响
+
+
+//我的实现方式
+git push  
+出来弹框输入密码，commit成功，当然是在之前追加了IP的基础
+
+
+//最后在GitHub向源仓库pull request提交成功
+//或者将公钥设置在源仓库里，还是删除自己的私钥或者源仓库进行某些权限设置好像也可以实现，未自己实现 
+
+
+//此外可以直接(20-03-14 19:11) 
+git ckeckout -b name 
+//直接在源仓库基础上分支到本地，之后提交
+git merge //的请求，但是这个我实现失败报错权限问题等，就哟点懵逼了，原因不是很明白
+
+
+
+
+如何更新fork项目的代码
+初步设想就是pull request 改善而已应该是
+
+方法-
+流程：fork 源仓库 ---① fork-->
+fork 仓库副本 ---② clone-->
+local 仓库
+
+方法2：
+首先要先确定一下是否建立了主repo的远程源： git remote -v
+如果里面只能看到你自己的两个源(fetch 和 push)，那就需要添加主repo的源： git remote add upstream URL
+git remote -v
+这里的upstream是我们建立的远程branch的一个本地别名。 注意: 一般有https或者ssh的方式，如果是ssh的方式，则需要添加ssh的URL，不能添加https的方式，否则不能在ssh下访问该URL，另外，如果想删除remote的upstream标签，则可以运行： git remote rm upstream
+然后你就能看到upstream了。
+如果想与主repo合并： git fetch upstream
+git merge upstream/master
+
+
+
+参考文章
+https://blog.csdn.net/QD_smile/article/details/86529612?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158410934219725211937770%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158410934219725211937770&biz_id=0&utm_source=distribute.pc_search_result.none-task
+
+https://blog.csdn.net/wowoniuzailushang/article/details/78545971?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+
+
+
+
+
+拓展：
+搭建svn
+这个有更加友好的是由目录显示，有点像专用的私有库一样的界面显示，一直在用但是搭建的过程不是很明白，而且本机所有的文件并没有github的习惯，这个是个硬伤，特别是重要资料和面试等知识点，都必须实时的更新在github上面
