@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <mysql-connector-java>5.1.47</mysql-connector-java>
+        <mysql-connector-java>8.0.16</mysql-connector-java>
         <mybatis-spring-boot>1.3.2</mybatis-spring-boot>
         <druid-spring-boot>1.1.10</druid-spring-boot>
         <mybatis.generator.version>1.3.6</mybatis.generator.version>
